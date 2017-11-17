@@ -6,7 +6,7 @@
 
         <li><a>基本資料</a>
             <ol class="hidden">
-                 <a class="lc" href="{{route('supplier')}}">供應商</a>
+                 <a class="lc" href="{{url('/supplier')}}">供應商</a>
                  <a class="lc" href="{{route('customer')}}">一般客戶</a>
                  <a class="lc" href="{{route('manufacturer')}}">營造工程</a>
                  <a class="lc" href="{{route('product')}}">庫存產品</a>
