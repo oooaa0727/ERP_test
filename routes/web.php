@@ -15,16 +15,33 @@ use App\Supplier;
 Route::get('/', function () {
     return view('index');
 });
-//首頁
-Route::get('/index',['as' =>'index','uses'=> function () {
-    return view('index');
-}]);
+
+//登入 登出 註冊
+Auth::routes();
+
+Route::get('/index', 'HomeController@index')->name('index');
+
+
 
 //基本資料->供應商
-Route::get('/supplier',['as' =>'supplier','uses'=> function (){
-    return view('basic.supplier');
+
+Route::get('/supplier',['as' =>'supplier.index', function () {
+    return view('basic.supplier.supplier');
 }]);
-Route::post('/supplier','Supplier@store');
+
+//無效↓
+Route::get('suppliers',['as' =>'supplier.index','use' =>'SupplierController@index']);
+
+
+//基本資料->供應商->表單
+//無效↓
+Route::get('suppliers/create',['as' =>'supplier.create','use' =>'SupplierController@form']);
+
+Route::get('/create',['as' =>'supplier.create', function () {
+    return view('basic.supplier.create');
+}]);
+//基本資料->供應商->新增
+Route::post('/store',['as' =>'supplier.store','use' =>'SupplierController@test']);
 /*
 Route::get('/', function () {
     $suppliers = Supplier::orderBy('created_at', 'asc')->get();
@@ -85,6 +102,3 @@ Route::get('/setting',['as' =>'setting','uses'=> function () {
 Route::get('/search',['as' =>'search','uses'=> function () {
     return view('search');
 }]);
-Auth::routes();
-
-Route::get('/index', 'HomeController@index')->name('index');
