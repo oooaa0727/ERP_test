@@ -5,7 +5,7 @@
 <div>
     @include('common.errors')
 
-    <form action="store" method="post" class="bootstrap-frm">
+    <form action="#" method="post" class="bootstrap-frm">
         {{ csrf_field() }}
         <div id="main" class="container">
             <h2 id="elements">供應商</h2>
@@ -39,6 +39,7 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach(range(1, 20) as $id)
                         <tr>
                             <td><input type="checkbox" id="S001" name="S001"><label for="S001"></label></td>
                             <td>S001</td>
@@ -109,10 +110,11 @@
                             <td></td>
                             <td></td>
                         </tr>
+                        @endforeach
                         </tbody>
                     </table>
                     <ul class="actions" align="right">
-                        <a href="#" class="button special">新增</a>
+                        <a href="{{ url('/create') }}"class="button special">新增</a>
                         <a href="#" class="button special">修改</a>
                         <a href="#" class="button">刪除</a>
                     </ul>
