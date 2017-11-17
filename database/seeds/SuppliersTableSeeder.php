@@ -11,11 +11,11 @@ class SuppliersTableSeeder extends Seeder
      */
     public function run()
     {
-        Post::truncate();
+        Supplier::truncate();
 
         $total = 20;
         $faker = Faker::create('zh_TW');
-
+$data=[];
         foreach (range(1, $total) as $index) {
             Supplier::create([
                 'id'   => $faker->realText(10),
@@ -37,5 +37,9 @@ class SuppliersTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->subDays($total - $index)->addHours(rand(1, 24)),
             ]);
         }
+
+        $suppliers = $this->table('posts');
+
+               $suppliers->insert($data)->save();
     }
 }
