@@ -16,7 +16,7 @@
                             <input type="text" name="query" id="query" value="" placeholder="Query" />
                         </div>
                         <div class="3u$ 12u$(small)">
-                            <a href="{{route('search')}}" class="button icon fa-search">Search</a>
+                            <a href="#" class="button icon fa-search">Search</a>
                         </div>
                     </div>
                 </form>
@@ -42,9 +42,10 @@
 
 
                         @if(isset($suppliers))
-                            
+
                             @foreach($suppliers as $supplier)
                                 <tr>
+                                    <td><input type="checkbox" id="{{$id}}" name="index">
                                     <td>{{ $id }}</td>
                                     <td>{{ $name }}</td>
                                     <td>{{ $POC }}</td>
@@ -63,7 +64,7 @@
                         </table>
                         @endif
                         <ul class="actions" align="right">
-                            <a href="{{ url('/create') }}"class="button special">新增</a>
+                            <a href="{{route('supplier.create')}}"class="button special">新增</a>
                             <a href="#" class="button special">修改</a>
                             <a href="#" class="button">刪除</a>
                         </ul>
