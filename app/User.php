@@ -7,10 +7,23 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    /*use Notifiable;
 public function Suppliers(){
     return $this->hasMany(Supplier::class);
 }
+
+    public function Products(){
+        return $this->hasMany(Product::class);
+    }
+
+    public function Customers(){
+        return $this->hasMany(Customer::class);
+    }
+
+    public function Manufacturers(){
+        return $this->hasMany(Manufacturer::class);
+    }
+*/
     /**
      * The attributes that are mass assignable.
      *
