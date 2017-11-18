@@ -11,13 +11,14 @@
             {{ csrf_field() }}
             <div id="main" class="container">
 
+
                 /*供應商編號*/
 
                 <div class="form-group{{ $errors->has('id') ? ' has-error' : '' }}">
                     <label for="id" class="col-md-4 control-label">ID</label>
 
                     <div class="col-md-6">
-                        <input id="id" type="text" class="form-control" name="id" value="{{ old('id') }}" required autofocus>
+                        <input id="id" readonly type="text" class="form-control" name="id" value="{{ old('id') }}" required autofocus>
 
                         @if ($errors->has('id'))
                             <span class="help-block">
@@ -192,18 +193,12 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="col-md-6 col-md-offset-4">
-                        <button type="submit" class="btn btn-primary">
-                            Register
-                        </button>
-                    </div>
-                </div>
+
 
                 <ul class="actions" align="right">
                     <a href="#"class="button special">新增</a>
                     <a href="#" class="button special">重填</a>
-                    <a href="#" class="button">取消</a>
+                    <a href="{{route('supplier.recall')}}" class="button">取消</a>
                 </ul>
 
 
