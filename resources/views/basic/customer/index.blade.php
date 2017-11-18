@@ -8,7 +8,7 @@
         <form action="#" method="post" class="bootstrap-frm">
             {{ csrf_field() }}
             <div id="main" class="container">
-                <h2 id="elements">一般顧客</h2>
+                <h2 id="elements">一般客戶</h2>
                 <div>
                     <form method="post" action="#">
                         <div class="row uniform">
