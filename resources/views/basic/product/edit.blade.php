@@ -162,7 +162,7 @@
 
                 <ul class="actions" align="right">
                     <a href="#"class="button special">新增</a>
-                    <a href="#" class="button special">重填</a>
+
                     <a href="{{route('product.recall')}}" class="button">取消</a>
                 </ul>
 

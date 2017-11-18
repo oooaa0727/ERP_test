@@ -7,7 +7,7 @@
         <div class="panel-heading">
             <h1>供應商</h1>
         </div>
-        <form action="{{ route('supplier.store')}}" method="post" class="bootstrap-frm">
+        <form action="{{ route('supplier.create')}}" method="post" class="bootstrap-frm">
             {{ csrf_field() }}
             <div id="main" class="container">
 
