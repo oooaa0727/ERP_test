@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Supplier extends Model
 {
+    protected $table='suppliers';
     protected $fillable = [
-        'id','name', 'POC','contact','postal','address',
-        'phone','fax','cell phone','email', 'TaxID'
+        'sid','name', 'POC','contact','postal','address',
+        'phone','fax','cellphone','email', 'TaxID'
     ];
 /*
     protected function validator(array $data)
