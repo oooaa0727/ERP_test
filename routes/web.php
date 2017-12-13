@@ -21,21 +21,32 @@ Auth::routes();
 
 Route::get('/index', 'HomeController@index')->name('index');
 
+
+Route::get('reset',['as' =>'reset','uses'=> function (){
+    return View('auth.passwords.reset');
+}]);
+
 //Test->supplier
 
 
 Route::group(['prefix' => 'basic'], function() {
-//基本資料->供應商
-Route::get('suppliers',['as' =>'supplier.index','uses' =>'SupplierController@index']);
-//基本資料->供應商->表單
-Route::get('suppliers/create',['as' =>'supplier.create','uses' =>'SupplierController@create']);
-//基本資料->供應商->新增
-Route::post('/store',['as' =>'supplier.store','uses' =>'SupplierController@store']);
-//基本資料->供應商->編輯
-//
-Route::get('suppliers/{id}/edit', ['as' => 'supplier.edit'  , 'uses' => 'SupplierController@edit']);
-//基本資料->供應商->取消
-Route::get('suppliers/recall',['as' =>'supplier.recall','uses' =>'SupplierController@recall']);
+    //基本資料->供應商
+    Route::get('suppliers',['as' =>'supplier.index','uses' =>'SupplierController@index']);
+    //基本資料->供應商->查詢
+    Route::post('suppliers/search',['as' =>'supplier.search','uses' =>'SupplierController@search']);
+    //基本資料->供應商->表單
+    Route::get('suppliers/create',['as' =>'supplier.create','uses' =>'SupplierController@create']);
+    //基本資料->供應商->新增
+    Route::post('suppliers',['as' =>'supplier.store','uses' =>'SupplierController@store']);
+    //基本資料->供應商->編輯
+    Route::get('suppliers/{id}/edit', ['as' => 'supplier.edit' , 'uses' => 'SupplierController@edit']);
+    //基本資料->供應商->更新
+    Route::patch('suppliers/{id}',['as'=>'supplier.update','uses'=> 'SupplierController@update']);
+    //基本資料->供應商->刪除
+    Route::delete('suppliers/{id}',['as'=>'supplier.destroy','uses'=> 'SupplierController@destroy']);
+
+    //基本資料->供應商->取消
+    Route::get('suppliers/recall',['as' =>'supplier.recall','uses' =>'SupplierController@recall']);
 /*
 Route::get('/', function () {
     $suppliers = Supplier::orderBy('created_at', 'asc')->get();
@@ -117,6 +128,6 @@ Route::get('/service',['as' =>'service','uses'=> function () {
 }]);
 //設定
 Route::get('/setting',['as' =>'setting','uses'=> function () {
-    return view('setting');
+    return view('basic.product.setting');
 }]);
 
