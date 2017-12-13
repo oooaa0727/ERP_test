@@ -1,10 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Supplier;
-use Faker\Factory as Faker;
-use Carbon\Carbon;
-class SuppliersTableSeeder extends Seeder
+
+class ManufacturersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,14 +11,14 @@ class SuppliersTableSeeder extends Seeder
      */
     public function run()
     {
-        Supplier::truncate();
+        Manufacturer::truncate();
 
         $total = 20;
         $faker = Faker::create('zh_TW');
-$data=[];
+        $data=[];
         foreach (range(1, $total) as $index) {
-            Supplier::create([
-                'sid'   => random_int(001,1000),
+            Manufacturer::create([
+                'mid'   => random_int(001,1000),
                 'name'   => $faker->name,
 
                 'POC' => $faker->userName,
@@ -40,8 +38,8 @@ $data=[];
             ]);
         }
 
-        $suppliers = $this->table('suppliers');
+        $manufacturers = $this->table('manufacturers');
 
-               $suppliers->insert($data)->save();
+        $manufacturers->insert($data)->save();
     }
 }
