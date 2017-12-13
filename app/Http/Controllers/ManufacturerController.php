@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Manufacturer;
 use Illuminate\Http\Request;
 
 class ManufacturerController extends Controller
 {
     public function index(){
+        $manufacturers=Manufacturer::orderBy('id','DESC')->get();
+        $data=['manufacturers'=>$manufacturers];
         return view('basic.manufacturer.index');
     }
 

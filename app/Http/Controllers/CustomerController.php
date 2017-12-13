@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
     public function index(){
-        return view('basic.customer.index');
+        $customers=Customer::orderBy('id','DESC')->get();
+        $data=['customers'=>$customers];
+        return view('basic.customer.index',$data);
     }
 
     public function create()

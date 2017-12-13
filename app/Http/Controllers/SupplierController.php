@@ -10,7 +10,11 @@ class SupplierController extends Controller
 {
 
     public function index(){
-        return view('basic.supplier.index');
+
+        $suppliers=Supplier::orderBy('sid','ASC')->get();
+        $data=['suppliers'=>$suppliers];
+
+        return view('basic.supplier.index',$data);
     }
 
     public function create()
@@ -20,53 +24,42 @@ class SupplierController extends Controller
 
     public function edit($id)
     {
-        $data = ['id' => $id];
+        $supplier=Supplier::find($id);
+        $data=['supplier'=>$supplier];
 
         return view('basic.supplier.edit', $data);
     }
 
     public function recall()
     {
-        return view('basic.supplier.index');
+        return redirect()->route('supplier.index');
     }
 
 
-
-
-
     public function store(Request $request){
-        $this->validate($request, [
-            id =>  'required|max:255',
-            name =>'required|max:255',
-            POC =>  'required|max:255',
-            contact =>  'required|max:255',
-            postal =>  'required|max:255',
-            address =>  'required|max:255',
-            phone =>  'required|max:255',
-            fax =>  'required|max:255',
-            cellphone =>  'required|max:255',
 
-            TaxID =>  'required|max:255',
-            email =>  'required|max:255',
-        ]);
-        $request->suppliers()->create([
+        Supplier::create($request->all());
+        return redirect()->route('supplier.index');
+    }
 
-            'id '=> $request->id,
-            'name' => $request->name,
-            'POC' => $request->POC,
-            'contact'=> $request->contact,
-            'postal' => $request->postal,
-            'address' => $request->address,
-            'phone' => $request->phone,
-            'fax' => $request->fax,
-            'cellphone '=> $request->cellphone,
+    public function update(Request $request,$id){
 
-           'TaxID' => $request->TaxID,
-            'email'=> $request->email,
-        ]);
+        $supplier=Supplier::find($id);
+        $supplier->update($request->all());
+        return redirect()->route('supplier.index');
 
-      //  Supplier::create(Request::all());
-        return redirect()->route('basic.supplier.suppler');
+    }
+    public function destroy($id)
+    {
+        Supplier::destroy($id);
+        return redirect()->route('supplier.index');
+    }
 
+    public function search()
+    {
+        $q = Input::get('query');
+        $supplier = Supplier::find($q);
+
+        return View::make('supplier.index', compact('supplier'));
     }
 }
