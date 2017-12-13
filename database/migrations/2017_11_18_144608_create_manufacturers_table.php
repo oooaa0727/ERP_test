@@ -15,17 +15,17 @@ class CreateManufacturersTable extends Migration
     {
         Schema::create('manufacturers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('M_id');
-            $table->string('M_name');
-            $table->string('M_POC');
-            $table->string('M_contact');
-            $table->string('M_postal');
-            $table->string('M_address');
-            $table->string('M_phone')->nullable();
-            $table->string('M_cellphone');
-            $table->string('M_fax')->nullable();
-            $table->string('M_email')->nullable();
-            $table->string('M_TaxID')->nullable();
+            $table->string('mid');
+            $table->string('name');
+            $table->string('POC');
+            $table->string('contact');
+            $table->string('postal');
+            $table->string('address');
+            $table->string('phone')->nullable();
+            $table->string('cellphone');
+            $table->string('fax')->nullable();
+            $table->string('email')->nullable();
+            $table->string('TaxID')->nullable();
             $table->timestamps();
         });
     }
