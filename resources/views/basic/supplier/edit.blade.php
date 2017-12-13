@@ -7,8 +7,9 @@
         <div class="panel-heading">
             <h1>供應商</h1>
         </div>
-        <form action="{{ route('supplier.store')}}" method="post" class="bootstrap-frm">
+        <form action="supplier/{{$supplier->id}}" method="POST" role="form">
             {{ csrf_field() }}
+            {{ method_field('PATCH') }}
             <div id="main" class="container">
 
                 /*供應商編號*/
@@ -17,7 +18,7 @@
                     <label for="id" class="col-md-4 control-label">ID</label>
 
                     <div class="col-md-6">
-                        <input id="id" readonly type="text" class="form-control" name="id" value="{{ old('id') }}" required autofocus>
+                        <input id="id" readonly type="text" class="form-control" name="id" value="{{$supplier->id}}" required autofocus>
 
                         @if ($errors->has('id'))
                             <span class="help-block">
@@ -33,7 +34,7 @@
                     <label for="name" class="col-md-4 control-label">Name</label>
 
                     <div class="col-md-6">
-                        <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                        <input id="name" type="text" class="form-control" name="name" value="{{$supplier->name}}" required autofocus>
 
                         @if ($errors->has('name'))
                             <span class="help-block">
@@ -50,7 +51,7 @@
                     <label for="POC" class="col-md-4 control-label">POC</label>
 
                     <div class="col-md-6">
-                        <input id="POC" type="text" class="form-control" name="POC" value="{{ old('POC') }}" required autofocus>
+                        <input id="POC" type="text" class="form-control" name="POC" value="{{$supplier->POC }}" required autofocus>
 
                         @if ($errors->has('POC'))
                             <span class="help-block">
@@ -67,7 +68,7 @@
                     <label for="contact" class="col-md-4 control-label">contact</label>
 
                     <div class="col-md-6">
-                        <input id="contact" type="text" class="form-control" name="contact" value="{{ old('contact') }}" required autofocus>
+                        <input id="contact" type="text" class="form-control" name="contact" value="{{$supplier->contact }}" required autofocus>
 
                         @if ($errors->has('contact'))
                             <span class="help-block">
@@ -83,7 +84,7 @@
                     <label for="postal" class="col-md-4 control-label">postal</label>
 
                     <div class="col-md-6">
-                        <input id="postal" type="text" class="form-control" name="postal" value="{{ old('postal') }}" required autofocus>
+                        <input id="postal" type="text" class="form-control" name="postal" value="{{$supplier->postal}}" required autofocus>
 
                         @if ($errors->has('postal'))
                             <span class="help-block">
@@ -100,7 +101,7 @@
                     <label for="address" class="col-md-4 control-label">address</label>
 
                     <div class="col-md-6">
-                        <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required autofocus>
+                        <input id="address" type="text" class="form-control" name="address" value="{{$supplier->address }}" required autofocus>
 
                         @if ($errors->has('address'))
                             <span class="help-block">
@@ -116,7 +117,7 @@
                     <label for="phone" class="col-md-4 control-label">phone</label>
 
                     <div class="col-md-6">
-                        <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required autofocus>
+                        <input id="phone" type="text" class="form-control" name="phone" value="{{$supplier->phone }}" required autofocus>
 
                         @if ($errors->has('phone'))
                             <span class="help-block">
@@ -133,7 +134,7 @@
                     <label for="fax" class="col-md-4 control-label">fax</label>
 
                     <div class="col-md-6">
-                        <input id="fax" type="text" class="form-control" name="fax" value="{{ old('fax') }}" required autofocus>
+                        <input id="fax" type="text" class="form-control" name="fax" value="{{$supplier->fax}}" required autofocus>
 
                         @if ($errors->has('fax'))
                             <span class="help-block">
@@ -150,7 +151,7 @@
                     <label for="cellphone" class="col-md-4 control-label">cell phone</label>
 
                     <div class="col-md-6">
-                        <input id="cellphone" type="text" class="form-control" name="cellphone" value="{{ old('cellphone') }}" required autofocus>
+                        <input id="cellphone" type="text" class="form-control" name="cellphone" value="{{$supplier->cellphone }}" required autofocus>
 
                         @if ($errors->has('cellphone'))
                             <span class="help-block">
@@ -166,7 +167,7 @@
                     <label for="TaxID" class="col-md-4 control-label">Tax ID</label>
 
                     <div class="col-md-6">
-                        <input id="TaxID" type="text" class="form-control" name="TaxID" value="{{ old('TaxID') }}" required >
+                        <input id="TaxID" type="text" class="form-control" name="TaxID" value="{{$supplier->TaxID }}" required >
 
                         @if ($errors->has('TaxID'))
                             <span class="help-block">
@@ -182,7 +183,7 @@
                     <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                     <div class="col-md-6">
-                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                        <input id="email" type="email" class="form-control" name="email" value="{{$supplier->email }}" required>
 
                         @if ($errors->has('email'))
                             <span class="help-block">
@@ -194,7 +195,7 @@
 
 
                 <ul class="actions" align="right">
-                    <a href="#"class="button special">更新</a>
+                    <button type="submit" class="button special">更新</button>
 
                     <a href="{{route('supplier.recall')}}" class="button">取消</a>
                 </ul>

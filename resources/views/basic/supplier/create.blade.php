@@ -7,22 +7,22 @@
         <div class="panel-heading">
             <h1>供應商</h1>
         </div>
-        <form action="{{ route('supplier.create')}}" method="post" class="bootstrap-frm">
+        <form action="{{ route('supplier.store')}}" method="post" class="bootstrap-frm">
             {{ csrf_field() }}
             <div id="main" class="container">
 
 
                 /*供應商編號*/
 
-                <div class="form-group{{ $errors->has('id') ? ' has-error' : '' }}">
-                    <label for="id" class="col-md-4 control-label">ID</label>
+                <div class="form-group{{ $errors->has('sid') ? ' has-error' : '' }}">
+                    <label for="sid" class="col-md-4 control-label">ID</label>
 
                     <div class="col-md-6">
-                        <input id="id" readonly type="text" class="form-control" name="id" value="{{ old('id') }}" required autofocus>
+                        <input id="sid"  type="text" class="form-control" name="sid" value="{{ old('sid') }}" required autofocus>
 
-                        @if ($errors->has('id'))
+                        @if ($errors->has('sid'))
                             <span class="help-block">
-                                        <strong>{{ $errors->first('id') }}</strong>
+                                        <strong>{{ $errors->first('sid') }}</strong>
                                     </span>
                         @endif
                     </div>
@@ -196,7 +196,7 @@
 
 
                 <ul class="actions" align="right">
-                    <a href="#"class="button special">新增</a>
+                    <button class="button special">新增</button>
                     <a href="#" class="button special">重填</a>
                     <a href="{{route('supplier.recall')}}" class="button">取消</a>
                 </ul>

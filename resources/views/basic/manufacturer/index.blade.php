@@ -41,22 +41,22 @@
                             <tbody>
 
 
-                            @if(isset($suppliers))
 
-                                @foreach($suppliers as $supplier)
+                            @if(isset($manufacturers))
+                                @foreach($manufacturers as $manufacturer)
                                     <tr>
-                                        <td><input type="checkbox" id="{{$id}}" name="index">
-                                        <td>{{ $id }}</td>
-                                        <td>{{ $name }}</td>
-                                        <td>{{ $POC }}</td>
-                                        <td>{{ $contact }}</td>
-                                        <td>{{ $postal }}</td>
-                                        <td>{{ $address }}</td>
-                                        <td>{{ $phone}}</td>
-                                        <td>{{ $fax }}</td>
-                                        <td>{{ $cellphone }}</td>
-                                        <td>{{ $TaxID }}</td>
-                                        <td>{{ $email }}</td>
+                                        <td><input type="checkbox" id="{{$manufacturer->id}}" name="index"></td>
+                                        <td>{{ $manufacturer->mid }}</td>
+                                        <td>{{ $manufacturer->name }}</td>
+                                        <td>{{ $manufacturer->POC }}</td>
+                                        <td>{{ $manufacturer->contact }}</td>
+                                        <td>{{ $manufacturer->postal }}</td>
+                                        <td>{{ $manufacturer->address }}</td>
+                                        <td>{{ $manufacturer->phone}}</td>
+                                        <td>{{ $manufacturer->fax }}</td>
+                                        <td>{{ $manufacturer->cellphone }}</td>
+                                        <td>{{ $manufacturer->TaxID }}</td>
+                                        <td>{{ $manufacturer->email }}</td>
                                     </tr>
                                 @endforeach
 

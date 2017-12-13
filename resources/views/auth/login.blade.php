@@ -5,8 +5,12 @@
 
 
     <div id="main" class="container">
-        <h2 id="elements">Login</h2>
-        <div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h2>Login</h2></div>
+
+                    <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
@@ -37,12 +41,13 @@
                                 @endif
                             </div>
                         </div>
-
+<br>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
+                                    <input type="checkbox"   name="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                        Remember Me
                                     </label>
                                 </div>
                             </div>

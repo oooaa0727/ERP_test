@@ -4,8 +4,13 @@
 
 @section('content')
     <div id="main" class="container">
-        <h2 id="elements">Register</h2>
-        <div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+        <h2>Register</h2>        <div>
+                            <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
@@ -56,15 +61,33 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                @if ($errors->has('password_confirmation'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 
+
+<br>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
+
+                                <div class="g-recaptcha" data-sitekey="6LeW5DwUAAAAAM1AnX87jIqGve3KSijTqSbWEuEk"></div
+
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                                <br>
                                 <button type="submit" class="btn btn-primary">
                                     Register
                                 </button>
-                            </div>
+
                         </div>
                     </form>
                 </div>

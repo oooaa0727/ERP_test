@@ -39,22 +39,23 @@
                             <tbody>
 
 
-                            @if(isset($suppliers))
+                            @if(isset($customers))
 
-                                @foreach($suppliers as $supplier)
+                                @foreach($customers as $customer)
                                     <tr>
-                                        <td><input type="checkbox" id="{{$id}}" name="index">
-                                        <td>{{ $id }}</td>
-                                        <td>{{ $name }}</td>
-                                        <td>{{ $POC }}</td>
-                                        <td>{{ $contact }}</td>
-                                        <td>{{ $postal }}</td>
-                                        <td>{{ $address }}</td>
-                                        <td>{{ $phone}}</td>
-                                        <td>{{ $fax }}</td>
-                                        <td>{{ $cellphone }}</td>
-                                        <td>{{ $TaxID }}</td>
-                                        <td>{{ $email }}</td>
+                                        <td><input type="checkbox" id="checkbox" name="checkbox"  ><label for="{{$customer->id}}"></label></td>
+
+                                        <td>{{ $customer->cid }}</td>
+                                        <td>{{ $customer->name }}</td>
+
+
+                                        <td>{{ $customer->postal }}</td>
+                                        <td>{{ $customer->address }}</td>
+                                        <td>{{ $customer->phone}}</td>
+                                        <td>{{ $customer->fax }}</td>
+                                        <td>{{ $customer->cellphone }}</td>
+                                        <td>{{ $customer->TaxID }}</td>
+                                        <td>{{ $customer->email }}</td>
                                     </tr>
                                 @endforeach
 

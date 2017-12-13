@@ -40,23 +40,21 @@
                             <tbody>
 
 
-                            @if(isset($suppliers))
+                            @if(isset($products))
 
-                                @foreach($suppliers as $supplier)
+                                @foreach($products as $product)
                                     <tr>
                                         <td><input type="checkbox" id="{{$id}}" name="index">
-                                        <td>{{ $id }}</td>
-                                        <td>{{ $name }}</td>
-                                        <td>{{ $POC }}</td>
-                                        <td>{{ $contact }}</td>
-                                        <td>{{ $postal }}</td>
-                                        <td>{{ $address }}</td>
-                                        <td>{{ $phone}}</td>
-                                        <td>{{ $fax }}</td>
-                                        <td>{{ $cellphone }}</td>
-                                        <td>{{ $TaxID }}</td>
-                                        <td>{{ $email }}</td>
-                                    </tr>
+                                        <td>{{ $product->pid }}</td>
+                                        <td>{{ $product->name }}</td>
+                                        <td>{{ $product->spec }}</td>
+                                        <td>{{ $product->unit }}</td>
+                                        <td>{{ $product->purchasePR }}</td>
+                                        <td>{{ $product->salesPR}}</td>
+                                        <td>{{ $supplier->sid}}</td>
+                                        <td>{{ $product->inventory }}</td>
+                                     
+                                  
                                 @endforeach
 
                             </tbody>

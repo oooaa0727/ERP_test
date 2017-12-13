@@ -1,27 +1,39 @@
 <html>
-@include('layouts.partial.head')
+<head>
+    @include('layouts.partial.head')
 
     <title>@yield('title')|ERP</title>
-<!-- Stylesheet -->
+    <!-- Stylesheet -->
 
-
-<link href="{{ asset('css/main.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <body>
 <!-- Scripts -->
 
-<script src="{{asset('js/jquery.min.js')}}"></script>
-<script src="{{asset('js/jquery.scrolly.min.js')}}"></script>
-<script src="{{asset('js/jquery.scrollex.min.js')}}"></script>
-<script src="{{asset('js/skel.min.js')}}"></script>
-<script src="{{asset('js/util.js')}}"></script>
-<script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.scrolly.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.scrollex.min.js')}}"></script>
+<script src="{{asset('assets/js/skel.min.js')}}"></script>
+<script src="{{asset('assets/js/util.js')}}"></script>
+<script src="{{asset('assets/js/main.js')}}"></script>
 
 
 
-<body>
 @include('layouts.partial.nav')
 
-    @yield('content')
+@yield('content')
 
 </body>
+</head>
+
 </html>
+
+
+
+
+
+
+
+
