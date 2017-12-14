@@ -19,6 +19,10 @@ Route::get('/', function () {
 //登入 登出 註冊
 Auth::routes();
 
+//社群登入
+Route::get('auth/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+
 Route::get('/index', 'HomeController@index')->name('index');
 
 
